@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Compras App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()">
+                <a class="nav-link" routerLink="/">Inicio</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+                <a class="nav-link" routerLink="/proveedores">Proveedores</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+                <a class="nav-link" routerLink="/presupuestos">Presupuestos </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+                <a class="nav-link" routerLink="/registro">Registro </a>
+            </li>
+            <li class="nav-item" *ngIf="!isAuth()">
+                <button class="btn btn-primary float-md-right" routerLink="/iniciosesion">Inicie sesión</button>
+            </li>
+            <li class="nav-item" *ngIf="isAuth()">
+                <button class="btn btn-primary float-md-right" (click)="onLogout()">Cerrar sesión</button>
+            </li>
+        </ul>
+    </div>
+</nav>

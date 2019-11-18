@@ -37,7 +37,10 @@ this.proveedorService.AddProv(this.proveedor);
         localidad: ['',Validators.required],
         provincia: ['',Validators.required],
         telefono: ['',Validators.required],
-        email: ['',Validators.required],
+        email: ['',Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])],
         contacto: ['',Validators.required]
     });
   }

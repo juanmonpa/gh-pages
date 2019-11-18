@@ -19,20 +19,6 @@ export class ProveedoresService {
 
   constructor(private db: AngularFireDatabase) {
   }
-  //updateProv(proveedor: EditproveeComponent)
-  //{
-    //this.provsRef.update(proveedor.id, {
-      //nombre: proveedor.nombre,
-      //cif: proveedor.cif,
-      //direccion: proveedor.direccion,
-      //cp: proveedor.cp,
-      //localidad: proveedor.localidad,
-      //provincia: proveedor.provincia,
-      //telefono: proveedor.telefono,
-      //email: proveedor.email,
-      //contacto: proveedor.contacto
-    //});
-  //}
 
   AddProv(proveedor: AddproveeComponent) {
     this.provsRef.push(proveedor)
@@ -51,10 +37,7 @@ export class ProveedoresService {
   }
   deleteProv($key: string) {
     this.provsRef.remove($key);
-  }
-
-  private errorMgmt(error) {
-    console.log(error)
+    this.GetProvList();
   }
 
   createProveedor(proveedor: AddproveeComponent) {

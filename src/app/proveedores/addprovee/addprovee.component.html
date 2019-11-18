@@ -39,7 +39,7 @@
                 <label for="email">Correo Electrónico</label>
                 <i class="fa fa-check-circle check" *ngIf="formpro.controls.email.valid"></i>
                 <i class="fa fa-exclamation-circle uncheck" *ngIf="formpro.controls.email.invalid && formpro.controls.email.touched"></i>
-                <input type="text" class="form-control" id="email" formControlName="email">
+                <input type="text" class="form-control" id="email" formControlName="email" ngModel [email]="true">
                 <p class="alert alert-danger" *ngIf="formpro.controls.email.invalid && formpro.controls.email.touched">
                     Por favor introduzca una dirección de correo correcta.
                 </p>
@@ -53,12 +53,5 @@
                 Por favor complete todos los campos
             </p>
         </form>
-        <hr>
-        <pre> Estado Dirty: {{ formpro.controls.email.dirty }}</pre>
-        <pre> Estado Pristine: {{ formpro.controls.email.pristine }}</pre>
-        <pre> Estado Touched: {{ formpro.controls.email.touched }}</pre>
-        <pre> Estado Valid: {{ formpro.controls.email.valid }}</pre>
-        <pre> Estado Invalid: {{formpro.controls.email.invalid }}</pre>
-        <!-- <pre>{{ proveedor | json }}</pre> -->
     </div>
 </div>

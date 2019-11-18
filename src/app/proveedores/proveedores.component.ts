@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedoresService } from 'src/app/servicios/proveedores.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -30,23 +31,13 @@ export class ProveedoresComponent implements OnInit {
           this.proveedores.push(a as ProveedoresComponent)
         })
       })
+
   }
   deleteProveedor($key: string) {
     if (confirm('¿Estas seguro que deseas eliminarlo?')) {
       this.proveedoresService.deleteProv($key);
-      this.proveedores = [];
-      this.proveedoresService.GetProvList()
-      .snapshotChanges().subscribe(proveedores => {
-        proveedores.forEach(item => {
-          let a = item.payload.toJSON();
-          a['$key'] = item.key;
-          this.proveedores.push(a as ProveedoresComponent)
-        })
-      });
+      this.proveedores=[];
     }
-  }
-  onEdit(proveedor: ProveedoresComponent) {
-    this.proveedoresService.selectedProvee = Object.assign({}, proveedor);
   }
 
 }

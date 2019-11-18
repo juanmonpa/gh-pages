@@ -52,14 +52,17 @@ export class EditproveeComponent implements OnInit {
       localidad: ['',Validators.required],
       provincia: ['',Validators.required],
       telefono: ['',Validators.required],
-      email: ['',Validators.required],
+      email: ['',Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])],
       contacto: ['',Validators.required]
   });
   }
 
     onSubmit() {
       this.proveedor = this.saveProveedor();
-      this.proveedorService.AddProv(this.proveedor);
+      this.proveedorService.provRef.update(this.proveedor);
       this.router.navigate(['/proveedores']);
     }
     saveProveedor() {
